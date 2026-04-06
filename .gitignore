@@ -2,3 +2,5 @@
 .venv
 root_agent.log
 .python-version
+__init__.py
+_pycache__/
