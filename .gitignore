@@ -1,6 +1,10 @@
 .env
 .venv
 root_agent.log
+root_agent.log.*
 .python-version
 __init__.py
 _pycache__/
+*pyc
+*.db
+uv.lock

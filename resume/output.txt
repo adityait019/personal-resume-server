@@ -1,0 +1,46 @@
+Professional Summary
+AI Engineer with 1+ year of experience building enterprise GenAI systems, multi-agent orchestration platforms,
+and AI workflow automation solutions within BFSI-focused environments at TCS. Experienced in RAG
+pipelines, FastAPI backend systems, Azure OpenAI, agentic AI architectures, and real-time AI workflows.
+Education
+• Heritage Institute of Technology
+Kolkata, India
+B.Tech in Information Technology; DGPA: 8.02/10
+2020 – 2024
+Experience
+• Tata Consultancy Services (TCS)
+Kolkata, India
+System Engineer
+Apr 2025 – Present
+◦Enterprise AI Solutions: Designed and developed GenAI-based automation solutions and AI prototypes for
+BFSI enterprise use cases in collaboration with internal stakeholders and client teams.
+◦AI Test Suite Generator: Built AI-powered Test Suite Generator using Azure OpenAI, RAG pipelines, and
+prompt engineering techniques to generate 1200+ automation-ready test cases from business requirement
+documents.
+◦QA Automation Impact: Reduced manual QA effort by approximately 80–90% through automated test
+generation workflows validated by enterprise QA teams.
+◦Backend Engineering: Developed real-time backend systems using FastAPI, async execution, REST APIs, and
+WebSockets for streaming AI workflows and orchestration.
+◦Multi-Agent Orchestration: Architected scalable Multi-Agent Orchestrator platform enabling modular agent
+integration using A2A communication protocols.
+◦AI Workflow Integration: Integrated Azure OpenAI, Groq API, Google ADK, LangChain, and PostgreSQL into
+unified orchestration workflows and persistent AI systems.
+Projects
+• Multi-Agent Orchestrator Platform: Built scalable orchestration platform for managing communication and
+execution across multiple AI agents using FastAPI, PostgreSQL, WebSockets, and Azure OpenAI. Implemented async
+execution, A2A-based communication layers, and accelerator framework to auto-generate A2A-compliant servers from
+agent scripts.
+• FinGuard-AI: Developed AI-powered personal finance platform using RAG pipelines and LLMs to analyze financial
+behavior, generate personalized recommendations, and evaluate spending risks using real-time inference through Groq
+API.
+Achievements
+• Runner-Up: TCS Quantum Hackathon for developing innovative technology solutions in collaborative team
+environment.
+• Participation: Participated in Google 5-Day Agentic AI Capstone Program focused on modern agentic AI systems and
+workflows.
+Skills
+• Programming Languages: Python, C++
+• AI / GenAI: LLMs, RAG, Prompt Engineering, Agentic AI, Multi-Agent Systems, MCP, A2A
+• Frameworks / Tools: Azure OpenAI, LangChain, FastAPI, Google ADK, FastMCP, Groq API
+• Backend / Infra: REST APIs, WebSockets, PostgreSQL, Async Execution, Real-Time Systems
+• Concepts: Workflow Automation, Scalable Backend Architecture, AI Orchestration
