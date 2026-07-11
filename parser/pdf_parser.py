@@ -1,47 +1,56 @@
-import pymupdf  
-
-
+import pymupdf
 
 
 class PDFParser:
-    def __init__(self, pdf_path):
+    """Extracts raw text from a PDF resume, all pages, no side-effect file writes."""
+
+    def __init__(self, pdf_path: str):
+        if not isinstance(pdf_path, str):
+            raise TypeError("Path must be a string.")
         self.pdf_path = pdf_path
-        self.doc = None
 
-    def open_pdf(self):
+    def extract_text(self) -> str:
+        """
+        Opens the PDF, concatenates text from every page, and returns it.
+        Raises FileNotFoundError / RuntimeError on failure instead of
+        printing and swallowing — callers (the ingestion service) need
+        to know extraction failed rather than silently getting "".
+        """
+        doc = None
         try:
-            if not isinstance(self.pdf_path, str):
-                raise TypeError("Path must be a string.")
+            doc = pymupdf.open(self.pdf_path)
 
-            self.doc = pymupdf.open(self.pdf_path)   # open the document
-            print("Pages:", self.doc.page_count)
+            if doc.page_count == 0:
+                raise ValueError(f"PDF has no pages: {self.pdf_path}")
 
-            # Read text from the first page
-            if self.doc.page_count > 0:
-                page = self.doc[0]
+            page_texts = []
+            for page in doc:
                 text = page.get_text("text")
-                if not isinstance(text, str):
-                    text = str(text)
-                print("First page text:")
-                print(text)
-                with open("./resume/output.txt", "w", encoding="utf-8") as f:
-                    f.write(text)
-                print("Text from the first page has been written to output.txt")
-                
-            else:
-                print("The document has no pages.")
+                if text:
+                    page_texts.append(text)
+
+            full_text = "\n\n".join(page_texts).strip()
+
+            if not full_text:
+                raise ValueError(
+                    f"No extractable text found in {self.pdf_path} "
+                    "(it may be a scanned/image-only PDF requiring OCR)."
+                )
+
+            return full_text
 
         except FileNotFoundError:
-            print("File not found:", self.pdf_path)
-        except Exception as e:
-            print("Error:", e)
+            raise FileNotFoundError(f"File not found: {self.pdf_path}")
+        except pymupdf.FileDataError as e:
+            raise RuntimeError(f"Could not read PDF (corrupt or unsupported): {e}")
         finally:
-            if self.doc is not None:
-                self.doc.close()
-# Example usage
+            if doc is not None:
+                doc.close()
+
+
 if __name__ == "__main__":
+    import sys
 
-    pdf_path = r"C:\Users\adity\project\personal-resume-server\resume\aditya_resume (2).pdf"
-    pdf_parser = PDFParser(pdf_path)
-
-    pdf_parser.open_pdf()
+    path = sys.argv[1] if len(sys.argv) > 1 else "sample.pdf"
+    parser = PDFParser(path)
+    print(parser.extract_text())

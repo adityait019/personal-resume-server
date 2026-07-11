@@ -1,3 +1,5 @@
+Aditya Kumar
+
 Professional Summary
 AI Engineer with 1+ year of experience building enterprise GenAI systems, multi-agent orchestration platforms,
 and AI workflow automation solutions within BFSI-focused environments at TCS. Experienced in RAG
